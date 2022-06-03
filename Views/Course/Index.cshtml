@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Kurslar";
+}
+@model List<CourseViewModel>
+<br />
+<br />
+<br />
+<a href="@Url.Action("Insert","Course")" class="btn btn-success">Kurs Ekle</a>
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <td>Id</td>
+            <td>İsmi</td>
+            <td>Sil</td>
+        </tr>
+        @foreach (CourseViewModel course in Model)
+        {
+            <tr>
+                <td>@course.CourseId</td>
+                <td>@course.CourseName</td>
+                <td><a href="@Url.Action("Delete","Course",new {id = course.Id})" class="btn btn-danger">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
